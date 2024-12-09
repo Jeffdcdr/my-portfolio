@@ -23,7 +23,7 @@ const Cert = () => {
           className="text-blue-600 hover:underline"
         >
           Salesforce Certified Advanced Administrator
-          {/* <Image src="app\image\SFAdmin2.png" alt="Descriptive Text" width={200} height={200} /> */}
+          
         </a>
         
       </p>
