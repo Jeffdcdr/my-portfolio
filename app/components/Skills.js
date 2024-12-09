@@ -6,7 +6,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-10 bg-gray-50">
       <h2 className="text-3xl font-bold text-center mb-12  text-slate-800">Skills</h2>
       <div className="flex flex-wrap justify-center gap-4">
         {skills.map((skill, index) => (

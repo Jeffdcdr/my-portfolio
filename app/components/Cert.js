@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Cert = () => {
   return (
-    <section id="cert" className="py-20 bg-white text-center">
+    <section id="cert" className="py-5 bg-white text-center">
       <h2 className="text-3xl font-bold mb-6  text-slate-800">
         Certifications
       </h2>
@@ -20,7 +20,7 @@ const Cert = () => {
               "width=800,height=600,scrollbars=yes,resizable=yes"
             );
           }}
-          className="text-blue-600 hover:underline"
+          className="text-blue-600 hover:bg-amber-300 hover:text-gray-800 max-w-32 rounded-full"
         >
           Salesforce Certified Advanced Administrator
           
@@ -38,7 +38,7 @@ const Cert = () => {
               "width=800,height=600,scrollbars=yes,resizable=yes"
             );
           }}
-          className="text-blue-600 hover:underline"
+          className="text-blue-600 hover:bg-amber-300 hover:text-gray-800 max-w-32 rounded-full"
         >
           Salesforce Certified Administrator
         </a>
