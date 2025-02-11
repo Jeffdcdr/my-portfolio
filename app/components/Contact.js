@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Contact = () => {
   const [showForm, setShowForm] = useState(false);
@@ -30,20 +31,51 @@ const Contact = () => {
     setPhone(formatPhoneNumber(e.target.value));
   };
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const formErrors = validateForm();
+  //   if (Object.keys(formErrors).length === 0) {
+  //     alert('Thank you for sending your information, our team will contact you soon.');
+  //     setShowForm(false);
+  //     setName('');
+  //     setEmail('');
+  //     setPhone('');
+  //     setErrors({});
+  //   } else {
+  //     setErrors(formErrors);
+  //   }
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formErrors = validateForm();
+    
     if (Object.keys(formErrors).length === 0) {
-      alert('Thank you for sending your information, our team will contact you soon.');
-      setShowForm(false);
-      setName('');
-      setEmail('');
-      setPhone('');
-      setErrors({});
+      console.log('Sending data:', { name, email, phone }); // Debugging log
+  
+      try {
+        const response = await axios.post('http://localhost:5000/api/contact', {
+          name,
+          email,
+          phone
+        });
+  
+        console.log('Response from server:', response.data); // Debugging log
+        alert('Thank you! Your information has been saved.');
+        setShowForm(false);
+        setName('');
+        setEmail('');
+        setPhone('');
+        setErrors({});
+      } catch (error) {
+        console.error('Error sending data:', error.response || error);
+        alert('Error saving contact. Try again.');
+      }
     } else {
       setErrors(formErrors);
     }
   };
+  
 
   return (
     <section id="contact" className="py-5 bg-white text-center">
